@@ -255,10 +255,10 @@ class CloudScraper(Session):
                 resp.headers.get('Server', '').startswith('cloudflare')
                 and resp.status_code in [429, 503]
                 and re.search(
-                    r'<form id="challenge-form" action="/.*?__cf_chl_jschl_tk__=\S+"',
+                    r'<form.*?id="challenge-form".*?action="/.*?__cf_chl_jschl_tk__=\S+"',
                     resp.text,
                     re.M | re.DOTALL
-                )
+                ) is not None
             )
         except AttributeError:
             pass
