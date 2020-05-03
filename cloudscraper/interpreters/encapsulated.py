@@ -9,7 +9,7 @@ def template(body, domain):
 
     try:
         js = re.search(
-            r'setTimeout\(function\(\){\s+(var s,t,o,p,b,r,e,a,k,i,n,g,f.+?\r?\n[\s\S]+?a\.value =.+?)\r?\n',
+            r'setTimeout\(function\(\){\s+(var s,\s*?t,\s*?o,\s*?p,\s*?b,\s*?r,\s*?e,\s*?a,\s*?k,\s*?i,\s*?n,\s*?g,\s*?f.+?\r?\n[\s\S]+?a\.value =.+?)\r?\n',
             body
         ).group(1)
     except Exception:
